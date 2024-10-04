@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light background color */
+        }
+        h1 {
+            color: #2c3e50; /* Darker color for the title */
+        }
+        .patient-list {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove padding */
+        }
+        .patient-list li {
+            background-color: #fff; /* White background for each list item */
+            border: 1px solid #bdc3c7; /* Border for list items */
+            border-radius: 5px; /* Rounded corners */
+            margin: 10px 0; /* Space between items */
+            padding: 15px; /* Padding inside each item */
+            transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+        }
+        .patient-list li:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hover effect */
+        }
+        a {
+            text-decoration: none; /* Remove underline from links */
+            color: #2980b9; /* Link color */
+            font-weight: bold; /* Bold links */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient List</h1>
+    <ul class="patient-list">
+        {% for patient in patients %}
+            <li>
+                <a href="{% url 'patient_detail' patient.id %}">{{ patient.patient_name }} ({{ patient.center }})</a>
+            </li>
+        {% empty %}
+            <li>No patients found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

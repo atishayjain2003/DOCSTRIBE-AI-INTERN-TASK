@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Patient Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light background color */
+        }
+        h1 {
+            color: #2c3e50; /* Darker color for the title */
+            margin-bottom: 20px; /* Spacing below the title */
+        }
+        .upload-form {
+            background-color: #fff; /* White background for form */
+            border: 1px solid #bdc3c7; /* Border for the form */
+            border-radius: 5px; /* Rounded corners */
+            padding: 20px; /* Padding inside the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+        }
+        button {
+            background-color: #2980b9; /* Button color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Padding inside the button */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover */
+        }
+        button:hover {
+            background-color: #1a6d94; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Patient Data</h1>
+    <div class="upload-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

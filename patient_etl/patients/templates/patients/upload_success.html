@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Successful</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light background color */
+        }
+        .success-message {
+            background-color: #dff0d8; /* Light green background */
+            color: #3c763d; /* Dark green text */
+            border: 1px solid #d6e9c6; /* Border for success message */
+            border-radius: 5px; /* Rounded corners */
+            padding: 20px; /* Padding inside the message box */
+            text-align: center; /* Centered text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+            margin-top: 50px; /* Space from the top */
+        }
+        a {
+            color: #2980b9; /* Link color */
+            font-weight: bold; /* Bold links */
+            text-decoration: none; /* Remove underline */
+        }
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">
+            <h1>Success!</h1>
+            <p>Patient data uploaded successfully!</p>
+            <p><a href="{% url 'patient_list' %}">Go back to the patient list</a></p>
+        </div>
+    </div>
+</body>
+</html>

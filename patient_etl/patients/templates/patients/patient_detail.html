@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ patient.patient_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Ensure borders are collapsed */
+            margin-top: 20px; /* Add space between paragraphs and table */
+        }
+        th, td {
+            border: 1px solid #bdc3c7; /* Border for table cells */
+            padding: 10px; /* Padding inside cells */
+            text-align: left; /* Align text to the left */
+        }
+        th {
+            background-color: #2980b9; /* Header background color */
+            color: white; /* Header text color */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Zebra striping effect for even rows */
+        }
+        tr:hover {
+            background-color: #d1e7fd; /* Highlight row on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ patient.patient_name }}</h1>
+    <p>Center: {{ patient.center }}</p>
+    <p>Doctor: {{ patient.doctor_name }}</p>
+    <p>Phone: {{ patient.get_decrypted_mobile_number }}</p>
+    <p>Medications: {{ patient.medications }}</p>
+    <p>Investigations: {{ patient.investigations }}</p>
+
+    <h2>Medical Tests</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Test Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in medical_tests %}
+            <tr>
+                <td>{{ test.test_name }}</td>
+                <td>{{ test.test_value }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No medical tests found for this patient.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Diagnosis Advised: {{ patient.diagnosis_advised }}</p>
+</body>
+</html>
