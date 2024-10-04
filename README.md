@@ -7,6 +7,8 @@ Instructions for running the application locally :
 5. Set Up the Database (python manage.py migrate)
 6. Create a Superuser (python manage.py createsuperuser) for admin interface
 7. Run the server (python manage.py runserver)
+8. Upload the 'docstribe_assignment.csv' file and just follow the lead!
+9. We are done with our task 😊 
 * Project Screenshots have been added in the repository including proof of Mobile Number being stored in Encrypted format in the database
 * Mobile Number Encryption is handled using fernet encryption technique that guarantees confidentiality by using a secure key for both encryption and decryption of data.
 * python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())" command was run in the terminal and the received key was stored as ENCRYPTION_KEY in the project's settings file.
